@@ -1,4 +1,4 @@
-import express from 'express';
+import express from "express";
 
 import {
     getContacts,
@@ -6,7 +6,7 @@ import {
     postContact,
     putContact,
     deleteContact,
-} from '../../controllers/'
+} from '../../controllers/index.js';
 
 const router = express.Router()
 
