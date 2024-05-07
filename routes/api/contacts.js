@@ -20,4 +20,4 @@ router.delete('/:contactId', deleteContact)
 
 router.put('/:contactId', putContact)
 
-export { router as contactsRouter }
+export { router as contactsRouter };
