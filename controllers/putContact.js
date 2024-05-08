@@ -5,12 +5,12 @@ export const putContact = async (req, res, next) => {
     try {
         const { contactId } = req.params
 
-        if (Object.keys(req.body).length === 0) {
-            res.status(400).json({
-                message: 'missing fields',
-            })
-            return
-        }
+        // if (Object.keys(req.body).length === 0) {
+        //     res.status(400).json({
+        //         message: 'missing fields',
+        //     })
+        //     return
+        // }
 
         const { value, error } = contactSchema.validate(req.body)
 
