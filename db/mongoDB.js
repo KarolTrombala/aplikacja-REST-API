@@ -1,8 +1,8 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
-const { DB_HOST: uriDb } = process.env
+const { DB_HOST: uriDb } = process.env;
 
-const connection = mongoose.connect(uriDb)
+const connection = mongoose.connect(uriDb);
 
 export const connectToMongoDB = async () => {
     try {
@@ -13,4 +13,4 @@ export const connectToMongoDB = async () => {
         console.error(err)
         process.exit(1)
     }
-}
+};
