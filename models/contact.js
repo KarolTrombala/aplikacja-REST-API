@@ -1,4 +1,4 @@
-import { model, Schema } from 'mongoose'
+import { model, Schema } from 'mongoose';
 
 const contactSchema = Schema(
     {
@@ -22,4 +22,4 @@ const contactSchema = Schema(
 
 const Contact = model('contact', contactSchema)
 
-export default Contact
+export default Contact;
