@@ -1,4 +1,4 @@
-import * as contactsActions from '../models/index.js';
+import Contact from '../models/contact.js'
 
 export const getContactById = async (req, res, next) => {
     try {
@@ -13,4 +13,4 @@ export const getContactById = async (req, res, next) => {
             message: error.message,
         })
     }
-};
+}

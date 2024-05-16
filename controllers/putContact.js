@@ -1,18 +1,18 @@
-import { contactSchema } from '../validators/ContactSchema.js';
-import * as contactsActions from '../models/index.js';
+import Contact from '../models/contact.js'
 
 export const putContact = async (req, res, next) => {
     try {
-        const { contactId } = req.params
+        const { params, body } = req
+        const { contactId } = params
 
-        // if (Object.keys(req.body).length === 0) {
-        //     res.status(400).json({
-        //         message: 'missing fields',
-        //     })
-        //     return
-        // }
+        if (Object.keys(req.body).length === 0) {
+            res.status(400).json({
+                message: 'missing fields',
+            })
+            return
+        }
 
-        const { value, error } = contactSchema.validate(req.body)
+        const { error } = Contact.validate(req.body)
 
         if (error) {
             return res.status(400).json({
@@ -20,10 +20,13 @@ export const putContact = async (req, res, next) => {
             })
         }
 
-        const updatedContact = await contactsActions.updateContact(
-            contactId,
-            value
-        )
+        if (error) {
+            return res.status(400).json({
+                message: error.details[0].message,
+            })
+        }
+
+        await Contact.findByIdAndUpdate(contactId, body)
 
         res.status(200).json({
             data: updatedContact,
@@ -33,4 +36,4 @@ export const putContact = async (req, res, next) => {
             message: error.message,
         })
     }
-};
+}
