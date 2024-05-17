@@ -1,4 +1,4 @@
-import express from "express";
+import express from 'express'
 
 import {
     getContacts,
@@ -7,7 +7,7 @@ import {
     putContact,
     deleteContact,
     patchContactStatus,
-} from '../../controllers/index.js';
+} from '../../controllers/contacts/index.js'
 
 const router = express.Router()
 
@@ -23,4 +23,4 @@ router.put('/:contactId', putContact)
 
 router.patch('/:contactId/favorite', patchContactStatus)
 
-export { router as contactsRouter };
+export { router as contactsRouter }
