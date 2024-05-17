@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 
-import { contactsRouter } from './routes/api/contacts.js';
+import { apiRouter } from './routes/api/api.js'
 
 import {
     notFoundHandler,
@@ -9,7 +9,8 @@ import {
     loggerHandler,
     corsHandler,
     bodyParserHandler,
-} from './middleware/index.js';
+    passportHandler,
+} from './middleware/index.js'
 
 dotenv.config()
 
@@ -18,8 +19,9 @@ const app = express()
 loggerHandler(app)
 corsHandler(app)
 bodyParserHandler(app)
+passportHandler(app)
 
-app.use('/api/contacts', contactsRouter)
+app.use('/api', apiRouter)
 
 app.use(notFoundHandler)
 app.use(internalErrorHandler)
