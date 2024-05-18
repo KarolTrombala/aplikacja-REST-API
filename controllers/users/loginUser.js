@@ -1,8 +1,8 @@
-import jwt from 'jsonwebtoken'
-import { config } from 'dotenv'
+import jwt from 'jsonwebtoken';
+import { config } from 'dotenv';
 
 import User from './models/user.js'
-import { userSchema, validateData } from './validators/index.js'
+import { userSchema, validateData } from '../../validators/index.js';
 
 config()
 const secret = process.env.SECRET

@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 
-import { apiRouter } from './routes/api/api.js'
+import { apiRouter } from './routes/api/api.js';
 
 import {
     notFoundHandler,
@@ -10,7 +10,7 @@ import {
     corsHandler,
     bodyParserHandler,
     passportHandler,
-} from './middleware/index.js'
+} from './middleware/index.js';
 
 dotenv.config()
 

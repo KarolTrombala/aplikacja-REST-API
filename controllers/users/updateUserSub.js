@@ -1,5 +1,5 @@
-import User from './models/user.js'
-import { subscriptionSchema, validateData } from './validators/index.js'
+import User from '../../models/user.js';
+import { subscriptionSchema, validateData } from '../../validators/index.js';
 
 export const updateUserSub = async (req, res, next) => {
     const { user, body } = req

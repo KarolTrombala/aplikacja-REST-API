@@ -1,4 +1,4 @@
-import express from 'express'
+import express from 'express';
 import { contactsRouter } from './contacts.js'
 import { usersRouter } from './users.js'
 

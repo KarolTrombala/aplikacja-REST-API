@@ -1,7 +1,7 @@
-import { config } from 'dotenv'
-import { ExtractJwt, Strategy } from 'passport-jwt'
+import { config } from 'dotenv';
+import { ExtractJwt, Strategy } from 'passport-jwt';
 
-import User from './models/user.js'
+import User from '../models/user.js';
 
 config()
 

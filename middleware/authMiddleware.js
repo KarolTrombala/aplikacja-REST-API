@@ -1,4 +1,4 @@
-import passport from 'passport'
+import passport from 'passport';
 
 export const authMiddleware = (req, res, next) => {
     passport.authenticate('jwt', { session: false }, (err, user) => {

@@ -1,5 +1,5 @@
-import User from './models/user.js'
-import { userSchema, validateData } from './validators/index.js'
+import User from '../../models/user.js';
+import { userSchema, validateData } from '../../validators/index.js';
 
 export const registerUser = async (req, res, next) => {
     try {

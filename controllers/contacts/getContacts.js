@@ -1,4 +1,4 @@
-import Contact from '../../models/contact.js'
+import Contact from '../../models/contact.js';
 
 export const getContacts = async (req, res, next) => {
     const { page = 1, limit = 20, favorite } = req.query
