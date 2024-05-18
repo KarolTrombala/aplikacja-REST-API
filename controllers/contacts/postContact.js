@@ -1,6 +1,6 @@
 import Contact from '../../models/contact.js';
 
-import { contactSchema, validateData } from '../validators/index.js'
+import { contactSchema, validateData } from '../../validators/index.js';
 
 export const postContact = async (req, res, next) => {
     try {
