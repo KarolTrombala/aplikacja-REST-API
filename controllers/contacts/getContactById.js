@@ -1,16 +1,16 @@
-import Contact from '../models/contact.js';
+import Contact from '../../models/contact.js';
 
-export const deleteContact = async (req, res, next) => {
+export const getContactById = async (req, res, next) => {
     try {
         const { contactId } = req.params
-        await Contact.findByIdAndDelete(contactId)
+        const contact = await Contact.findById(contactId)
 
         res.status(200).json({
-            message: 'contact deleted',
+            data: contact,
         })
     } catch (error) {
         res.status(404).json({
             message: error.message,
         })
     }
-};
+}

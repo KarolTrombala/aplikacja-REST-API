@@ -1,4 +1,4 @@
-import Contact from '../models/contact.js'
+import Contact from '../../models/contact.js';
 
 export const patchContactStatus = async (req, res, next) => {
     try {

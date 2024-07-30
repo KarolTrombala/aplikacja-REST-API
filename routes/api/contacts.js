@@ -1,26 +1,19 @@
-import express from "express";
+import express from 'express'
 
-import {
-    getContacts,
-    getContactById,
-    postContact,
-    putContact,
-    deleteContact,
-    patchContactStatus,
-} from '../../controllers/index.js';
+import * as controllers from '../../controllers/contacts/index.js';
+import { authMiddleware } from '../../middleware/authMiddleware.js';
 
 const router = express.Router()
 
-router.get('/', getContacts)
+router.get('/', authMiddleware, controllers.getContacts)
+router.get('/:contactId', authMiddleware, controllers.getContactById)
+router.post('/', authMiddleware, controllers.postContact)
+router.delete('/:contactId', authMiddleware, controllers.deleteContact)
+router.put('/:contactId', authMiddleware, controllers.putContact)
+router.patch(
+    '/:contactId/favorite',
+    authMiddleware,
+    controllers.patchContactStatus
+)
 
-router.get('/:contactId', getContactById)
-
-router.post('/', postContact)
-
-router.delete('/:contactId', deleteContact)
-
-router.put('/:contactId', putContact)
-
-router.patch('/:contactId/favorite', patchContactStatus)
-
-export { router as contactsRouter };
+export { router as contactsRouter }
