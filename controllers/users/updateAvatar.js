@@ -1,7 +1,7 @@
-import fs from 'fs/promises'
+import fs from 'fs/promises';
 
-import User from '#models/user.js'
-import { cropAndResize } from '#helpers/index.js'
+import User from '../../models/user.js';
+import { cropAndResize } from '../../helpers/index.js';
 
 export const updateAvatar = async (req, res, next) => {
     try {
