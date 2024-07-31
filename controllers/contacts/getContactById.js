@@ -13,4 +13,4 @@ export const getContactById = async (req, res, next) => {
             message: error.message,
         })
     }
-}
+};

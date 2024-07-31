@@ -26,4 +26,4 @@ export const getContacts = async (req, res, next) => {
             message: error.message,
         })
     }
-}
+};

@@ -13,4 +13,4 @@ export const deleteContact = async (req, res, next) => {
             message: error.message,
         })
     }
-}
+};
