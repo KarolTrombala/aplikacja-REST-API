@@ -1,8 +1,11 @@
-import express from 'express'
+import express from 'express';
 
 import * as controllers from '../../controllers/contacts/index.js';
-import { authMiddleware } from '../../middleware/authMiddleware.js';
-import { contactSchema } from '#validators/contactSchema.js'
+import {
+    authMiddleware,
+    bodyValidate,
+} from '../../middleware/index.js';
+import { contactSchema } from '../../validators/contactSchema.js';
 
 const router = express.Router()
 

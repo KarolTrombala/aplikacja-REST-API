@@ -3,7 +3,7 @@ import express from 'express';
 import * as controllers from '../../controllers/users/index.js';
 import { authMiddleware, uploadMiddleware,
   bodyValidate, } from '../../middleware/index.js';
-import { userSchema, subscriptionSchema } from '#validators/index.js';
+import { userSchema, subscriptionSchema } from '../../validators/index.js';
 
 const router = express.Router()
 
