@@ -1,8 +1,8 @@
-import multer from 'multer'
-import { v4 as uuidv4 } from 'uuid'
+import multer from 'multer';
+import { v4 as uuidv4 } from 'uuid';
 import path from 'path'
 
-import { setupFolder } from '#helpers/index.js'
+import { setupFolder } from '../helpers/index.js';
 
 const tempDir = path.join(process.cwd(), 'temp')
 const storageImage = path.join(process.cwd(), 'public/avatars')

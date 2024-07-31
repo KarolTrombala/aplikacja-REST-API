@@ -1,4 +1,4 @@
-import jimp from 'jimp'
+import jimp from 'jimp';
 
 export const cropAndResize = async (tempPath) => {
     try {
