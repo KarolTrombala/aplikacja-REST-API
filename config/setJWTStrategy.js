@@ -22,6 +22,6 @@ const verify = async (payload, onVerified) => {
     } catch (error) {
         return onVerified(error, false)
     }
-}
+};
 
 export const setJWTStrategy = new Strategy(options, verify)
