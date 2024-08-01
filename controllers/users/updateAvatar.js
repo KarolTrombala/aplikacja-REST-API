@@ -18,8 +18,9 @@ export const updateAvatar = async (req, res, next) => {
 
         const avatarURL = `/avatars/${filename}`
 
-        const user = await User.findById(id)
-        await User.findByIdAndUpdate(user._id, { avatarURL })
+        // const user = await User.findById(id)
+        // await User.findByIdAndUpdate(user._id, { avatarURL })
+         await User.findByIdAndUpdate(req.user._id, { avatarURL })
 
         return res.status(201).json({
             status: 'Success',
