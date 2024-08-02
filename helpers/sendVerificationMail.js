@@ -1,4 +1,7 @@
-const nodemailer = require('nodemailer');
+import nodemailer from 'nodemailer';
+import dotenv from 'dotenv';
+
+dotenv.config()
 
 const transporter = nodemailer.createTransport({
     host: 'smtp.mailgun.org',
@@ -10,7 +13,7 @@ const transporter = nodemailer.createTransport({
     },
 })
 
-export async function sendVerificationMail (userEmail, verificationToken) {
+export async function sendVerificationMail(userEmail, verificationToken) {
     const baseURL = process.env.BASE_URL
     const verificationURL = `${baseURL}/api/users/verify/${verificationToken}`
     const info = await transporter
@@ -27,12 +30,12 @@ export async function sendVerificationMail (userEmail, verificationToken) {
 // </strong>`,
         })
         .send(msg)
-            .then(() => {
-                console.log('Email sent')
-            })
-            .catch((error) => {
-                console.error(error)
-            })
+        .then(() => {
+            console.log('Email sent')
+        })
+        .catch((error) => {
+            console.error(error)
+        })
 }
 
 // old version
