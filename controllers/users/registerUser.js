@@ -1,6 +1,7 @@
 import User from '../../models/user.js';
-
+import { v4 as uuidv4 } from 'uuid';
 import gravatar from 'gravatar';
+import { sendVerificationMail } from '../../helpers/index.js';
 
 export const registerUser = async (req, res, next) => {
     try {
@@ -15,8 +16,9 @@ export const registerUser = async (req, res, next) => {
                 message: 'Email in use',
             })
         }
+        const verificationToken = uuidv4()
 
-        const newUser = await new User({ email })
+        const newUser = await new User({ email, verificationToken })
         const { subscription } = newUser
         const avatarURL = gravatar.url(email, { s: '250', d: 'identicon' })
         newUser.avatarURL = avatarURL
@@ -24,10 +26,12 @@ export const registerUser = async (req, res, next) => {
         await newUser.setPassword(password)
         await newUser.save()
 
+        await sendVerificationMail(email, verificationToken)
+
         return res.status(201).json({
             status: 'Created',
             code: 201,
-            data: { email, subscription, avatarURL },
+            data: { email, subscription, avatarURL, verificationToken },
         })
     } catch (error) {
         next(error)
