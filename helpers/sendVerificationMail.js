@@ -36,8 +36,8 @@ const transporter = nodemailer.createTransport({
     port: 587,
     secure: false,
     auth: {
-        user: 'postmaster@sandbox8f6e2742f2734a0497e83f1f7336f851.mailgun.org',
-        pass: 'be5315f98da3c84a844f408ca24a6bec-afce6020-1849b9a8',
+        user: process.env.USER,
+        pass: process.env.PASS,
     },
 })
 
@@ -47,9 +47,9 @@ export async function sendVerificationMail (userEmail, verificationToken) {
     const info = await transporter
         .sendMail({
             from: 'ktrombala@gmail.com',
-            to: 'userEmail',
+            to: userEmail,
             subject: 'Email Verification',
-            text: 'Click the following link to verify your email: ${verificationURL}',
+            text: `Click the following link to verify your email: ${verificationURL}`,
             html: `<strong>
 //   Click the following link to verify your email:
 //   <a href="${verificationURL}">
@@ -65,5 +65,3 @@ export async function sendVerificationMail (userEmail, verificationToken) {
                 console.error(error)
             })
 }
-
-main().catch(console.error)
