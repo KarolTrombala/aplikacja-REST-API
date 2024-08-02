@@ -11,6 +11,6 @@ export const connectToMongoDB = async () => {
     } catch (err) {
         console.log('Database connection failed, shutting down')
         console.error(err)
-        process.exit(1)
+        
     }
 };

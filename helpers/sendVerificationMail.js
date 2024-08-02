@@ -27,3 +27,4 @@ export const sendVerificationMail = async (userEmail, verificationToken) => {
             console.error(error)
         })
 }
+
