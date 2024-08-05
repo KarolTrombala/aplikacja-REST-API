@@ -3,8 +3,8 @@ import Contact from '../../models/contact.js';
 export const deleteContact = async (req, res, next) => {
     try {
         const { contactId } = req.params
-        // await contactsActions.removeContact(contactId)
-           await Contact.findByIdAndDelete(contactId)
+        await Contact.findByIdAndDelete(contactId)
+        
         res.status(200).json({
             message: 'contact deleted',
         })
